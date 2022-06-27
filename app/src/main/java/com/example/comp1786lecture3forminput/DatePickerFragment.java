@@ -24,7 +24,8 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
     }
 
     @Override
-    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-
+    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+        LocalDate dob = LocalDate.of(year, ++month, day);
+        ((MainActivity)getActivity()).updateDOB(dob);
     }
 }

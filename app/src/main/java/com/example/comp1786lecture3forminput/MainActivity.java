@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
+
+import java.time.LocalDate;
 
 public class MainActivity extends AppCompatActivity {
     private String[] workStatusArray = {
@@ -30,5 +33,10 @@ public class MainActivity extends AppCompatActivity {
     public void showDatePickerDialog(View v){
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
+
+    public void updateDOB(LocalDate dob){
+        TextView dobText = (TextView) findViewById(R.id.inputDob);
+        dobText.setText(dob.toString());
     }
 }
