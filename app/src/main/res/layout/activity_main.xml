@@ -102,7 +102,7 @@
         android:layout_marginTop="24dp"
         android:text="Do you agree to the terms and conditions?"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerWorkStatus" />
+        app:layout_constraintTop_toBottomOf="@+id/inputDob" />
 
     <Button
         android:id="@+id/button"
@@ -113,6 +113,27 @@
         android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkboxAgreement" />
+
+    <TextView
+        android:id="@+id/textDob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Date of Birth:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerWorkStatus" />
+
+    <TextView
+        android:id="@+id/inputDob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Click here to show DatePicker"
+        android:onClick="showDatePickerDialog"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDob" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
