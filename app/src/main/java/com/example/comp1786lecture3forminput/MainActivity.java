@@ -9,10 +9,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.time.LocalDate;
 
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText emailInput;
     private EditText phoneInput;
     private Button saveButton;
+    private CheckBox checkBoxAgreement;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +47,13 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+                checkBoxAgreement = findViewById(R.id.checkboxAgreement);
+                if (!checkBoxAgreement.isChecked()){
+                    Toast toast = Toast.makeText(getApplicationContext(),
+                            "You must agree to the terms", Toast.LENGTH_SHORT);
+                    toast.show();
+                    return;
+                }
                 getInputs();
             }
         });
