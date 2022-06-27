@@ -5,4 +5,6 @@
         <item>Part Time</item>
         <item>Unemployment</item>
     </string-array>
+    <string name="next_command_prompt">Next</string>
+    <string name="exit_command_label">Exit</string>
 </resources>

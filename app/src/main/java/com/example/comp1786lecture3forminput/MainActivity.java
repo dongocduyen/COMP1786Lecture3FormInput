@@ -1,11 +1,16 @@
 package com.example.comp1786lecture3forminput;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.DialogFragment;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -19,18 +24,15 @@ import android.widget.Toast;
 import java.time.LocalDate;
 
 public class MainActivity extends AppCompatActivity {
-    private String[] workStatusArray = {
+    private final String[] workStatusArray = {
             "Full Time",
             "Part Time",
             "Unemployment"
     };
 
     private Spinner spinnerWorkStatus;
-    private EditText nameInput;
-    private EditText emailInput;
-    private EditText phoneInput;
-    private Button saveButton;
     private CheckBox checkBoxAgreement;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +43,9 @@ public class MainActivity extends AppCompatActivity {
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerWorkStatus.setAdapter((dataAdapter));
 
-        saveButton = findViewById(R.id.buttonSave);
+        Toolbar toolBar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolBar);
+        Button saveButton = findViewById(R.id.buttonSave);
 
         saveButton.setOnClickListener(new View.OnClickListener(){
 
@@ -57,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 getInputs();
             }
         });
+
     }
 
     public void showDatePickerDialog(View v){
@@ -70,9 +75,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getInputs(){
-        nameInput = findViewById(R.id.inputName);
-        emailInput = findViewById(R.id.inputEmail);
-        phoneInput = findViewById(R.id.inputPhone);
+        EditText nameInput = findViewById(R.id.inputName);
+        EditText emailInput = findViewById(R.id.inputEmail);
+        EditText phoneInput = findViewById(R.id.inputPhone);
         spinnerWorkStatus = findViewById(R.id.spinnerWorkStatus);
 
         String strName = nameInput.getText().toString();
@@ -95,6 +100,30 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }).show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        switch (item.getItemId()){
+            case R.id.itemNext:
+                getInputs();
+                return true;
+            case R.id.itemExit:
+                Toast.makeText(
+                        getApplicationContext(),
+                        "You asked to exit, but why not start another app?",
+                        Toast.LENGTH_LONG
+                ).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 
