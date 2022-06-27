@@ -83,7 +83,7 @@
         app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/spinnerWorkStatus"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -92,7 +92,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textWorkStatus"
-        android:entries="@array/workStatusArray"
         />
 
     <CheckBox
@@ -103,7 +102,7 @@
         android:layout_marginTop="24dp"
         android:text="Do you agree to the terms and conditions?"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner2" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerWorkStatus" />
 
     <Button
         android:id="@+id/button"
